@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .empty {
+        width: 1.5em;
+        height: 1.5em;
+        border: 1px solid black;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .full {
+        width: 1.5em;
+        height: 1.5em;
+        border: 1px solid black;
+        background-color: black;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      #container {
+        max-width: 48em;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+
+  <script>
+    function monthDiff(dateFrom, dateTo) {
+      return (
+        dateTo.getMonth() -
+        dateFrom.getMonth() +
+        12 * (dateTo.getFullYear() - dateFrom.getFullYear())
+      );
+    }
+
+    const birth = new Date("1998-07");
+    const now = new Date();
+
+    const monthsAlive = monthDiff(birth, now);
+
+    for (let i = 0; i < 928; i++) {
+      var month = document.createElement("div");
+
+      if (i < monthsAlive) {
+        month.setAttribute("class", "full");
+      } else {
+        month.setAttribute("class", "empty");
+      }
+      month.setAttribute("id", "month" + i);
+
+      const cont = document.getElementById("container");
+      cont.appendChild(month);
+    }
+
+    document.title =
+      928 -
+      monthsAlive +
+      " months left (" +
+      Math.floor(100 * (monthsAlive / 928)) +
+      "% done)";
+  </script>
+</html>
