@@ -39,9 +39,10 @@
     const birth = new Date("1998-07");
     const now = new Date();
 
+    const eightyeightyearsinmonths = 88 * 12;
     const monthsAlive = monthDiff(birth, now);
 
-    for (let i = 0; i < 928; i++) {
+    for (let i = 0; i < eightyeightyearsinmonths; i++) {
       var month = document.createElement("div");
 
       if (i < monthsAlive) {
@@ -56,10 +57,10 @@
     }
 
     document.title =
-      928 -
+      eightyeightyearsinmonths -
       monthsAlive +
       " months left (" +
-      Math.floor(100 * (monthsAlive / 928)) +
+      Math.floor(100 * (monthsAlive / eightyeightyearsinmonths)) +
       "% done)";
   </script>
 </html>
